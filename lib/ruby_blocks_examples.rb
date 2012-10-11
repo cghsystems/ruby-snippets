@@ -52,13 +52,13 @@ end
 raise "Was expecting #{@expected_proc_return} but got #{proc_method}" unless @expected_proc_return == proc_method
 
 
-@expected_proc_return_from_nexted_example = @expected_proc_return << " from proc_method_nested_example"
+@expected_proc_return_from_nested_example = @expected_proc_return << " from proc_method_nested_example"
 # The nested example proves that althought the proc block returns 
 # immediatly the class calling the method containing the proc
 # also does not return immediatly
 def proc_method_nested_example
 	proc_method
-	@expected_proc_return_from_nexted_example 
+	@expected_proc_return_from_nested_example 
 end
 
-raise "Was expecting #{@expected_proc_return_from_nexted_example} but got #{proc_method_nested_example}" unless @expected_proc_return_from_nexted_example == proc_method_nested_example
+raise "Was expecting #{@expected_proc_return_from_nested_example} but got #{proc_method_nested_example}" unless @expected_proc_return_from_nested_example == proc_method_nested_example
