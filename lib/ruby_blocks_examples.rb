@@ -4,7 +4,7 @@ collection = []
 expected_lambda = "Hello Lambda".freeze
 
 # To assign a closure to a variable Use lambda keyword
-# This lamda will add e into collection
+# This lambda will add e into collection
 lambda_block = lambda { |e| collection << e }
 
 
@@ -53,7 +53,7 @@ raise "Was expecting #{@expected_proc_return} but got #{proc_method}" unless @ex
 
 
 @expected_proc_return_from_nested_example = @expected_proc_return << " from proc_method_nested_example"
-# The nested example proves that althought the proc block returns 
+# The nested example proves that although the proc block returns 
 # immediatly the class calling the method containing the proc
 # also does not return immediatly
 def proc_method_nested_example
