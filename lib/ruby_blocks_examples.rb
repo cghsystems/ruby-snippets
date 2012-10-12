@@ -60,5 +60,29 @@ def proc_method_nested_example
 	proc_method
 	@expected_proc_return_from_nested_example 
 end
-
 raise "Was expecting #{@expected_proc_return_from_nested_example} but got #{proc_method_nested_example}" unless @expected_proc_return_from_nested_example == proc_method_nested_example
+
+
+#Yields
+
+def yield_example_with_error
+   yield 
+end
+
+begin
+  yield_example_with_error
+rescue LocalJumpError
+  #Expect the LocalJumpError 
+end
+  
+
+def yield_example_no_error
+   yield if block_given?
+   "Somethting is wrong"
+end
+@yield_example_return = "yield_example_return"
+yield_example_proc = Proc.new { @yield_example_return }
+yield_example_result =  yield_example_no_error  &yield_example_proc
+raise "Was expecting #{@yield_example_return} but got #{yield_example_result}" unless @yield_example_return == yield_example_result
+
+
